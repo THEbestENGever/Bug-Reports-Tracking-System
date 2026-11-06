@@ -1,0 +1,300 @@
+:root {
+    --brand-light: #9EC86A;
+    --brand-dark: #329C77;
+    --brand-text: #14806b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f4f7f6;
+}
+
+/* ========== الشريط العلوي ========== */
+header {
+    width: 100%;
+    background: linear-gradient(135deg, var(--brand-light), var(--brand-dark));
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.welcome-user {
+    font-size: 22px;
+}
+
+/* ========== الأيقونة والقائمة المنسدلة ========== */
+.user-menu {
+    position: relative;
+}
+
+.user-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.user-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 52px;
+    right: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    min-width: 130px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.dropdown a {
+    display: block;
+    padding: 12px 18px;
+    color: var(--brand-text);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.dropdown a:hover {
+    background: #eef5ee;
+}
+
+/* هذي الفئة الجافا سكربت بيضيفها عند الضغط على الأيقونة */
+.dropdown.show {
+    display: block;
+}
+
+/* ========== المحتوى الرئيسي ========== */
+main {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.create-bug-report {
+    width: 220px;
+    height: 220px;
+    background: #fff;
+    border: 3px dashed var(--brand-dark);
+    border-radius: 20px;
+    color: var(--brand-dark);
+    font-size: 90px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.create-bug-report:hover {
+    background: #eef5ee;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== المودال ========== */
+#outer-div {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+/* هذي الفئة الجافا سكربت بيضيفها عند الضغط على + */
+#outer-div.show {
+    display: flex;
+}
+
+.inner-div {
+    position: relative;
+    background: #fff;
+    width: 90%;
+    max-width: 420px;
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.inner-div h2 {
+    color: var(--brand-text);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #78909c;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* ========== الفورم داخل المودال ========== */
+.inner-div form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inner-div label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: #37474f;
+}
+
+.inner-div input[type="text"],
+.inner-div input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cfd8dc;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.inner-div input[type="text"]:focus,
+.inner-div input[type="email"]:focus {
+    border-color: var(--brand-dark);
+    box-shadow: 0 0 5px rgba(50, 156, 119, 0.4);
+}
+
+/* ========== الأزرار ========== */
+.add-employee-btn {
+    background: #fff;
+    color: var(--brand-dark);
+    border: 2px solid var(--brand-dark);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-employee-btn:hover {
+    background: var(--brand-dark);
+    color: #fff;
+}
+
+.inner-div button[type="submit"] {
+    background: linear-gradient(135deg, var(--brand-light), var(--brand-dark));
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.inner-div button[type="submit"]:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* ========== قائمة الموظفين المضافين ========== */
+.employee-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.employee-list li {
+    background: #eef5ee;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #37474f;
+      display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.remove-btn {
+    background: none;
+    border: none;
+    color: #e53935;
+    font-size: 16px;
+    cursor: pointer;
+}
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+}
+.project-card {
+    width: 220px;
+    min-height: 220px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    text-decoration: none;
+    color: #37474f;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    color: var(--brand-text);
+    word-break: break-word;
+}
+
+.project-card p {
+    font-size: 14px;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 999px;   /* هذا اللي يسوي الشكل البيضاوي */
+    font-size: 12px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.badge-active    { background: #329C77; }
+.badge-completed { background: #78909c; }

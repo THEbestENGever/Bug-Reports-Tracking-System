@@ -1,0 +1,61 @@
+/* ========== تقسيم الصفحة: شريط + محتوى ========== */
+body {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ========== الشريط الجانبي ========== */
+.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--brand-dark), var(--brand-text));
+    padding: 30px 0;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar a {
+    display: block;
+    padding: 16px 28px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    border-left: 4px solid transparent;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* الصفحة الحالية */
+.sidebar a.active {
+    background: rgba(255, 255, 255, 0.25);
+    border-left-color: #fff;
+    font-weight: bold;
+}
+
+/* ========== المحتوى ========== */
+.page-content {
+    flex: 1;
+    min-width: 0;   /* مهم: يمنع جدول البقات العريض من دفع الصفحة */
+}
+.notif-badge {
+    display: none;
+    background: #e53935;
+    color: #fff;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+}

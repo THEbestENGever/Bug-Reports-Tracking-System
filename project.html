@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project page</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="project.css">
+</head>
+<body>
+
+<header>
+    <h2 id="project-title"></h2>
+    <a href="Homepage.html" class="back-button">←</a>
+</header>
+
+<main>
+    <div class="settings-wrapper">
+        <button type="button" id="settings-btn" aria-label="Settings">⚙️</button>
+
+        <div id="settings-menu">
+            <div class="settings-section">
+                <h4>Members</h4>
+                <ul id="members-list"></ul>
+                <input type="email" id="new-member-email" placeholder="Enter member email">
+                <button type="button" id="add-member-btn">Add</button>
+            </div>
+
+            <div class="settings-section">
+                <label for="project-status-select">Status</label>
+                <select id="project-status-select">
+                    <option value="Active">Active</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="settings-section">
+                <button type="button" id="delete-project-btn">Delete Project</button>
+            </div>
+        </div>
+    </div>
+
+    <ul id="project-employees"></ul>
+
+    <div class="filters">
+    <label for="filter-status">Status</label>
+    <select id="filter-status">
+        <option value="">All</option>
+        <option value="New">New</option>
+        <option value="Open">Open</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Closed">Closed</option>
+    </select>
+
+    <label for="filter-severity">Severity</label>
+    <select id="filter-severity">
+        <option value="">All</option>
+        <option value="Blocker">Blocker</option>
+        <option value="Critical">Critical</option>
+        <option value="Major">Major</option>
+        <option value="Normal">Normal</option>
+        <option value="Minor">Minor</option>
+        <option value="Cosmetic">Cosmetic</option>
+    </select>
+
+    <label for="filter-assignee">Assigned To</label>
+    <select id="filter-assignee">
+        <option value="">All</option>
+        <option value="__me__">Me</option>
+    </select>
+
+    <button type="button" id="filter-reset">Reset</button>
+</div>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Bug ID</th>
+                    <th>Date Reported</th>
+                    <th>Reported By</th>
+                    <th>Assigned To</th>
+                    <th>Severity</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Module</th>
+                    <th>Environment</th>
+                    <th>Description</th>
+                    <th>Pre-Condition</th>
+                    <th>Steps to reproduce</th>
+                    <th>Expected Result</th>
+                    <th>Actual Result</th>
+                    <th>Additional details</th>
+                    <th>Evidence/Screenshot</th>
+                    <th>Reproducibility ratio</th>
+                    <th>Actions</th>
+                    <th>History</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody id="bugs-body"></tbody>
+        </table>
+    </div>
+
+    <button type="button" id="add-bug-btn">Bug Log</button>
+
+
+    <div id="outer-div">
+        <div class="inner-div">
+            <button type="button" class="close-btn" aria-label="Close">X</button>
+            <h2>Log New Bug</h2>
+
+            <form id="bug-form">
+                <label for="date">Date Reported</label>
+                <input type="date" id="date" required>
+
+                <label for="reported-by">Reported By</label>
+                <input type="text" id="reported-by" placeholder="Enter Reported By who?">
+
+                <label for="assigned-to">Assigned To</label>
+                <select id="assigned-to">
+                    <option value="">Unassigned</option>
+                </select>
+
+                <label for="severity">Severity</label>
+                <select id="severity" name="Severity" required>
+                    <option value="">Select</option>
+                    <option value="Blocker">Blocker</option>
+                    <option value="Critical">Critical</option>
+                    <option value="Major">Major</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Minor">Minor</option>
+                    <option value="Cosmetic">Cosmetic</option>
+                </select>
+
+                <label for="priority">Priority</label>
+                <select id="priority" name="Priority" required>
+                    <option value="">Select</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                    <option value="">Select</option>
+                    <option value="New">New</option>
+                    <option value="Open">Open</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Closed">Closed</option>
+                </select>
+
+                <label for="module">Module</label>
+                <input type="text" id="module" placeholder="Enter Module">
+
+                <label for="environment">Environment</label>
+                <input type="text" id="environment" placeholder="Enter Environment">
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4" cols="50" placeholder="Enter Description"></textarea>
+
+                <label for="pre-condition">Pre-Condition:</label>
+                <textarea id="pre-condition" name="pre-condition" rows="4" cols="50" placeholder="Enter Pre-Condition"></textarea>
+
+                <label for="steps-to-reproduce">Steps to reproduce</label>
+                <textarea id="steps-to-reproduce" name="steps-to-reproduce" rows="4" cols="50" placeholder="Enter One step per line"></textarea>
+
+                <label for="expected-result">Expected Result</label>
+                <textarea id="expected-result" name="expected-result" rows="10" cols="4" placeholder="Enter Expected Result"></textarea>
+
+                <label for="actual-result">Actual Result</label>
+                <textarea id="actual-result" name="actual-result" rows="10" cols="4" placeholder="Enter Actual Result"></textarea>
+
+                <label for="additional-details">Additional details</label>
+                <textarea id="additional-details" name="additional-details" rows="4" cols="50" placeholder="Additional details"></textarea>
+
+                <label for="evidence-screenshot">Evidence/Screenshot</label>
+                <input type="file" id="evidence-screenshot" accept="image/*">
+
+                <label for="reproducibility-ratio">Reproducibility ratio</label>
+                <input type="text" id="reproducibility-ratio">
+
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="history-modal">
+        <div class="inner-div">
+            <button type="button" class="close-btn" id="history-close" aria-label="Close">X</button>
+            <h2 id="history-title">Bug History</h2>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+    
+    <div id="comments-modal">
+    <div class="inner-div">
+        <button type="button" class="close-btn" id="comments-close" aria-label="Close">X</button>
+        <h2 id="comments-title">Comments</h2>
+        <ul id="comments-list"></ul>
+
+        <form id="comment-form">
+            <textarea id="comment-text" rows="3" placeholder="Write a comment... use @email to mention someone" required></textarea>
+            <button type="submit">Post</button>
+        </form>
+    </div>
+</div>
+</main>
+<script src="auth-guard.js?v=5"></script>
+<script src="api.js"></script>
+<script src="project.js"></script>
+</body>
+</html>

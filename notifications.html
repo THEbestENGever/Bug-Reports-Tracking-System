@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Notifications</title>
+         <meta charset="UTF-8">
+         <link rel="stylesheet" href="notifications.css">
+         <link rel="stylesheet" href="sidebar.css">
+    </head>
+    <body>
+<aside class="sidebar">
+    <nav>
+        <a href="Homepage.html" >Projects</a>
+        <a href="dashboard.html" >Dashboard</a>
+        <a href="notifications.html" class="active">Notifications <span class="notif-badge" id="notif-count"></span></a>
+    </nav>
+</aside>
+<div class="page-content">
+
+    <header>
+        <h2 class="welcome-user">Welcome Back</h2>
+        <div class="user-menu">
+            <button type="button" class="user-btn" aria-label="User menu">U</button>
+            <div class="dropdown">
+                <a href="login.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2>Notifications</h2>
+        <ul id="notifications-list"></ul>
+        <p id="no-notifications">No notifications yet</p>
+    </main>
+
+</div>
+<script src="auth-guard.js?v=5"></script>
+  <script src="notifications-data.js?v=4"></script>
+<script src="notifications.js?v=4"></script>   <!-- في notifications.html فقط -->
+    </body>
+</html>

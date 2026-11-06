@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" href="Homepage.css">
+    <link rel="stylesheet" href="sidebar.css">
+</head>
+
+<body>
+<aside class="sidebar">
+    <nav>
+        <a href="Homepage.html" class="active">Projects</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="notifications.html">Notifications <span class="notif-badge" id="notif-count"></span></a>
+    </nav>
+</aside>
+
+<div class="page-content">
+    <header>
+        <h2 class="welcome-user">Welcome Back</h2>
+        <div class="user-menu">
+            <button class="user-btn" aria-label="User menu">U</button>
+            <div class="dropdown">
+                <a href="login.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+   <main>
+    <div class="projects-grid" id="projects-grid">
+        <button type="button" class="create-bug-report">+</button>
+    </div>
+</main>
+
+    <div id="outer-div">
+        <div class="inner-div">
+            <button class="close-btn" aria-label="Close">X</button>
+            <h2>Create New Bug Report</h2>
+            <form id="bug-form">
+                <label>Project Name:
+                    <input type="text" id="project-name" placeholder="Enter project name">
+                </label>
+                <label>Add Employees:
+                    <input type="email" id="employee-email" placeholder="Enter employee email">
+                </label>
+                <button type="button" class="add-employee-btn">Add</button>
+                <ul class="employee-list"></ul>
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+    <script src="auth-guard.js?v=5"></script>
+  <script src="notifications-data.js?v=4"></script>
+<script src="api.js?v=3"></script>
+<script src="Homepage.js?v=3"></script>
+
+</body>
+</html>

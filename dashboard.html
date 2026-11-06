@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+
+<aside class="sidebar">
+    <nav>
+        <a href="Homepage.html">Projects</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="notifications.html">Notifications <span class="notif-badge" id="notif-count"></span></a>
+    </nav>
+</aside>
+
+<div class="page-content">
+
+    <header>
+        <h2 class="welcome-user">Welcome Back</h2>
+        <div class="user-menu">
+            <button type="button" class="user-btn" aria-label="User menu">U</button>
+            <div class="dropdown">
+                <a href="login.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2>Dashboard</h2>
+
+        <label for="period-filter">Choose a period:</label>
+        <select id="period-filter">
+            <option value="today">Today</option>
+            <option value="month">This Month</option>
+            <option value="6months">Last 6 Months</option>
+            <option value="year">This Year</option>
+        </select>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Bugs</h3>
+                <p class="stat-number" id="total-bugs">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Open Bugs</h3>
+                <p class="stat-number" id="open-bugs">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Critical Bugs</h3>
+                <p class="stat-number" id="critical-bugs">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Resolved Bugs</h3>
+                <p class="stat-number" id="resolved-bugs">0</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+           <h3>Avg. Resolution Time</h3>
+           <p class="stat-number" id="avg-resolution">-</p>
+        </div>
+
+        <div class="stat-card wide">
+            <h3>Severity Distribution</h3>
+            <div id="severity-chart"></div>
+        </div>
+    </main>
+
+</div>
+<script src="auth-guard.js?v=5"></script>
+<script src="notifications-data.js?v=4"></script>
+<script src="dashboard.js?v=4"></script>
+</body>
+</html>
